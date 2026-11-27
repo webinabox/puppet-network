@@ -89,7 +89,9 @@ define network::conf (
 
   $ensure       = present ) {
 
-  validate_re($ensure, ['present','absent'], 'Valid values are: present, absent. WARNING: If set to absent the conf file is removed.')
+  unless $ensure =~ Pattern[/present/, /absent/] {
+    fail('Valid values are: present, absent. WARNING: If set to absent the conf file is removed.')
+  }
 
   include ::network
 
