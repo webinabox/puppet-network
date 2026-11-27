@@ -129,7 +129,7 @@ define network::route (
   }
 
   if $mtu {
-    assert_type(Variant[Integer, Pattern[/\A[+-]?\d+\z/]], $mtu)
+    assert_type(Variant[Integer, Pattern[/\A[+-]?\d+\z/], Array[Variant[Integer, Pattern[/\A[+-]?\d+\z/]]]], $mtu)
   }
 
   if $scope {
